@@ -46,3 +46,18 @@ document.addEventListener('DOMContentLoaded', function () {
         isDown = false;
     });
 });
+// Hide navbar on scroll down, show on scroll up
+let prevScrollpos = window.pageYOffset;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    let currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        // Scrolling up
+        navbar.style.top = "0";
+    } else {
+        // Scrolling down
+        navbar.style.top = "-100px"; // Hide navbar (adjust if needed)
+    }
+    prevScrollpos = currentScrollPos;
+});
